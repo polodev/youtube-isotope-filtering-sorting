@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style>
+      .grid-item {
+        width: 25%;
+        padding: 10px;
+        margin: 10px;
+        color: white;
+      }
+      .flower {
+        background: teal;
+      }
+      .bird {
+        background: salmon;
+      }
+      .fruit {
+        background: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="filter">
+        <h1>Filtering</h1>
+        <button data-name='*' class="btn btn-info">All</button>
+        <button data-name=".fruit" class="btn btn-primary">fruit</button>
+        <button data-name=".flower" class="btn btn-danger">flower</button>
+        <button data-name=".bird" class="btn btn-success">bird</button>
+      </div>
+      <div class="sort">
+        <h1>sorting</h1>
+        <button data-name='name' class="btn btn-primary">name</button>
+        <button data-name='original-order' class="btn btn-info">original</button>
+        <button data-name='random' class="btn btn-dark">random</button>
+      </div>
+      <div class="grid">
+        <div class="grid-item flower">Rose</div>
+        <div class="grid-item bird">Parrot</div>
+        <div class="grid-item fruit">Banana</div>
+        <div class="grid-item flower">Tulip</div>
+        <div class="grid-item bird">Sparrow</div>
+        <div class="grid-item flower">Marigold</div>
+        <div class="grid-item fruit">Orange</div>
+        <div class="grid-item bird">Owl</div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="isotope.pkgd.min.js"></script>
+    <script>
+      var $grid = $('.grid').isotope({
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows',
+        getSortData: {
+          name: function (element) {
+            return $(element).text();
+          }
+        }
+      });
+      $('.filter button').on("click", function () {
+        var value = $(this).attr('data-name');
+          $grid.isotope({
+            filter: value
+          });
+      })
+      $('.sort button').on("click", function () {
+        var value = $(this).attr('data-name');
+        $grid.isotope({
+          sortBy: value
+        });
+      })
+    </script>
+  </body>
+</html>
