@@ -1,8 +1,13 @@
 # Isotope
+Isotope is a js plugin for filtering and sorting layouts
 <a href="https://www.youtube.com/watch?v=ZfhVm7XPkXk&t" target="_blank"><img src="https://raw.githubusercontent.com/polodev/youtube-isotope-filtering-sorting/master/thumbnail.png"
 alt="isotope js plugin tutorial | How to use isotope js in your html web page for filtering and sorting" width="360" border="10" /></a>
+### Objectives
+* You will be able to filter, sorting layout in your webpage using isotope js
+* You will understand of basic workflow in jquery
 
 
+## Tuts
 go to https://isotope.metafizzy.co/ website and add isotope js file in your html file.   
 write markup for isotope
 ~~~html
