@@ -66,12 +66,12 @@ $('.sort button').on("click", function () {
 })
 ~~~
 
-### indication which sorting or filtering is currently active
-I add bootstrap active class to button class for indicating which filter and sort currently active. Initially, in case of filter, `all` is active and in case of sort `original-order` is active.
+### Indication for which sorting or filtering is currently active
+I add bootstrap active class to button for indicating which filter and sort currently active. Initially, in case of filter, `all` is active and in case of sort `original-order` is active.
 ~~~html
 <button data-name='*' class="btn btn-info active">All</button>
 ~~~
-whenever some one click on any filter or sort button, I will remove active class from all button and add active class only to selected button. js code is following
+Whenever some one click on any filter or sort button, I will remove active class from all button and add active class only to selected button. js code is following
 
 
 ~~~js
