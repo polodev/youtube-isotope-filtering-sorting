@@ -30,7 +30,7 @@
     <div class="container">
       <div class="filter">
         <h1>Filtering</h1>
-        <button data-name='*' class="btn btn-info">All</button>
+        <button data-name='*' class="btn btn-info active">All</button>
         <button data-name=".fruit" class="btn btn-primary">fruit</button>
         <button data-name=".flower" class="btn btn-danger">flower</button>
         <button data-name=".bird" class="btn btn-success">bird</button>
@@ -38,7 +38,7 @@
       <div class="sort">
         <h1>sorting</h1>
         <button data-name='name' class="btn btn-primary">name</button>
-        <button data-name='original-order' class="btn btn-info">original</button>
+        <button data-name='original-order' class="btn btn-info active">original</button>
         <button data-name='random' class="btn btn-dark">random</button>
       </div>
       <div class="grid">
@@ -74,12 +74,16 @@
           $grid.isotope({
             filter: value
           });
+        $('.filter button').removeClass('active');
+        $(this).addClass('active');
       })
       $('.sort button').on("click", function () {
         var value = $(this).attr('data-name');
         $grid.isotope({
           sortBy: value
         });
+        $('.sort button').removeClass('active');
+        $(this).addClass('active');
       })
     </script>
   </body>
