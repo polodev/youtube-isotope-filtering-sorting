@@ -39,7 +39,7 @@ $('.filter button').on("click", function () {
 ~~~
 
 ### sorting with isotope
-First write markup language for sorting
+First write markup for sorting
 ~~~html
 <div class="sort">
   <h1>sorting</h1>
@@ -48,7 +48,7 @@ First write markup language for sorting
   <button data-name='random' class="btn btn-dark">random</button>
 </div>
 ~~~
-Earlier in initialization, we use only `itemSelector` and `layoutMode` attribute. In order to set user defined sorting add a new attribute name with `getSortData` and give a attribute key with value. In our case attribute value is text of `.grid-item`.
+Earlier in initialization, we use only `itemSelector` and `layoutMode` attribute. In order to set user defined sorting add  `getSortData` and give a attribute key with value. In our case attribute name is `name` and value is text of `.grid-item`.
 ~~~js
 getSortData: {
   name: function (element) {
@@ -66,10 +66,25 @@ $('.sort button').on("click", function () {
 })
 ~~~
 
+### indication which sorting or filtering is currently active
+I add bootstrap active class to button class for indicating which filter and sort currently active. Initially, in case of filter, `all` is active and in case of sort `original-order` is active.
+~~~html
+<button data-name='*' class="btn btn-info active">All</button>
+~~~
+whenever some one click on any filter or sort button, I will remove active class from all button and add active class only to selected button. js code is following
+
+
+~~~js
+//incase of filter
+$('.filter button').removeClass('active');
+$(this).addClass('active');
+
+//incase of sorting
+$('.sort button').removeClass('active');
+$(this).addClass('active');
+~~~
+
 Hope this will help you. Take care. Thanks for watching and reading.
-
-
-
 
 
 
